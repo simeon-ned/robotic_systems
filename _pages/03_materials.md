@@ -34,16 +34,19 @@ The course material is organized in the form of **interactive lectures** with mi
 **Description:** The introduciory lecture on history of classical mechanics and purpose of models
 
 
-<div class="table-wrapper" markdown="block">
+<!-- <div class="table-wrapper" markdown="block">
 
 |:-:|:-:|
 |**Slides:** [online][1_slides_online], [jupyter notebook][1_slides_jupyter]|**Notes:** [online][1_notes_online], [pdf][1_notes_pdf]|
 
-</div>
+</div> -->
 
 
 <!-- **Supplementary material:** 
 python code, jupyter notebook and google colab on different aspects of simulation   -->
+
+> The content of this lecture is in progress
+{: .block-danger }
 
 ---- 
 
