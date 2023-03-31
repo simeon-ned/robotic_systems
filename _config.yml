@@ -1,10 +1,10 @@
 # Configurations
-title:            Modern Control Paradigms
-longtitle:        Modern Control Paradigms
+title:            Modeling and Simulation of Robotics Systems
+longtitle:        Modeling and Simulation of Robotics Systems
 author:           Simeon Nedelchev
 email:            simkaned@gmail.com
 description: >
-  The Online Lecture Notes on Modern Control paradigms course.
+  The Online Lecture Notes on Modeling and Simulation of Robotics Systems paradigms course.
 
 version:          1.0
 gitbook_version:  3.2.3
