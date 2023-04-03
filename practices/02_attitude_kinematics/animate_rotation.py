@@ -18,9 +18,7 @@ theta = np.zeros(N)
 
 for k in range(N):
     theta[k] = 3*t[k]
-    rm[k, :, :] = z_rotation(theta[k])  # np.eye(3)
-
-
+    rm[k, :, :] = z_rotation(theta[k])
 
 
 # ////////////////////////////////////////////////
