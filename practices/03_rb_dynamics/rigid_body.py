@@ -1,13 +1,9 @@
 import numpy as np
 from visualize import visualize_rotation
 
-# ////////////////////////
-# generate rotation matrix
-
-# \\ System of differential equations to solve
-
 
 def dynamics(state, torque, inertia):
+    # \\ System of differential equations to solve
     q, omega = state[:4], state[4:]
     Ic = inertia
 
@@ -23,7 +19,7 @@ def dynamics(state, torque, inertia):
     domega = np.linalg.inv(Ic) @ (torque - np.cross(omega, Ic @ omega))
     return np.hstack((dq, domega))
 
-
+# transfomration from quaternion to rotation matrix
 def quat2rot(q):
     q0, q1, q2, q3 = q
     rotation_matrix = np.array(
@@ -34,39 +30,47 @@ def quat2rot(q):
     return rotation_matrix
 
 
-N = 2000
-tf = 20
-dT = tf/N
-t = np.linspace(0, tf, N)
+tf = 30
+freq = 100 
+dT = 1/freq
+N = int(tf*freq)
+
+# 
 rm = np.zeros([N, 3, 3])
 quaternion_norm = np.zeros(N)
-
-x = np.array([1., 0., 0., 0., 0., 0., 4])
-inertia = np.diag([3, 2, 1])
+time = np.zeros(N)
+# initial state 
+x = np.array([1., 0., 0., 0., # initial quaternion 
+              0., 2., 0]) # initial angular speed
+# system parameters
+inertia = np.diag([6, 3, 1]) # inertia matrix
 
 for k in range(N):
-    time = dT*k
+    time[k] = dT*k
 
     # apply "delta" disturbance
     torque = np.zeros(3)
-    if tf/3 < time <= tf/3 + 0.1:
-        torque = np.array([0, 3, 0])
-    # print()
-
+    if tf/3 < time[k] <= tf/3 + 0.1:
+        torque = np.array([3, 3, 0])
+    
+    # simulate dynamics with forward euler 
     dx = dynamics(x, torque, inertia)
-
     x += dx*dT
+    # normalize quaternion 
     quat_norm = np.linalg.norm(x[:4])
     quat = x[:4]/quat_norm
     x[:4] = quat
+    
+    # store the quaternion norm and rotation matrices
     quaternion_norm[k] = quat_norm
     rm[k, :, :] = quat2rot(quat)  # np.eye(3)
+
 
 # ////////////////////////////////////////////////
 # animate the rotation matrix and two scalar stats
 
-stats = [['time', t],
-         [r'$|q|$', quaternion_norm]]
+stats = [[r'time $t$ ', time],
+         [r'quat norm $\|q\|$ ', quaternion_norm]]
 
 visualize_rotation(rm,
                    stats=stats)
