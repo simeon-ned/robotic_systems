@@ -30,8 +30,8 @@ def quat2rot(q):
     return rotation_matrix
 
 
-tf = 30
-freq = 100 
+tf = 10
+freq = 60 
 dT = 1/freq
 N = int(tf*freq)
 
@@ -41,7 +41,7 @@ quaternion_norm = np.zeros(N)
 time = np.zeros(N)
 # initial state 
 x = np.array([1., 0., 0., 0., # initial quaternion 
-              0.0, 0, 0.0]) # initial angular speed
+              0.0, 10., 0.01]) # initial angular speed
 # system parameters
 inertia = np.diag([6, 3, 2]) # inertia matrix
 
@@ -49,10 +49,10 @@ for k in range(N):
     time[k] = dT*k
 
     # apply "delta" disturbance
-    # torque = np.zeros(3)
+    torque = np.zeros(3)
     # if tf/3 < time[k] <= tf/3 + 2*dT:
     #     torque = np.array([3, 3, 0])
-    torque = np.array([0.001, -1+10*np.sin(time[k]), 0])
+    # torque = np.array([0.001, 0, 0])
     # simulate dynamics with forward euler 
     dx = dynamics(x, torque, inertia)
     x += dx*dT
@@ -73,4 +73,6 @@ stats = [[r'time $t$ ', time],
          [r'quat norm $\|q\|$ ', quaternion_norm]]
 
 visualize_rotation(rm,
-                   stats=stats)
+                   stats=stats, 
+                   save = True, 
+                   dt = dT)

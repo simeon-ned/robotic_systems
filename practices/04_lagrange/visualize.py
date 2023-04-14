@@ -2,13 +2,15 @@ from matplotlib import pyplot as plt, animation
 import numpy as np
 from collections import deque
 
+
 def visualize_double_pendulum(points,
                               stats=None,
                               dt=0.01,
                               trace_len=0.1,
                               save=False,
                               verbose=True,
-                              axes=False):
+                              axes=False,
+                              show=True):
     # TODO: Get pendulums lengths
     points_1, points_2 = points
     # print(points)
@@ -32,17 +34,16 @@ def visualize_double_pendulum(points,
         ax.grid(color='black', linestyle='--', linewidth=0.8, alpha=0.5)
     else:
         plt.axis('off')
-    # corner_text = ax.text(0.02, 0.90, 1.1, '')
 
     line, = ax.plot([], [], '-', c='black', lw=2)
     circle_1, = ax.plot([], [], 'o', c='blue', markersize=6, zorder=5)
     circle_2, = ax.plot([], [], 'o', c='red', markersize=6, zorder=5)
 
     trace, = ax.plot([], [], '-', c='r', lw=1, alpha=0.2)
-    ns = 20
 
-    corner_text = ax.text(0.05, 0.8, '', transform=ax.transAxes)
-    history_x, history_y = deque(maxlen=int(trace_len*LEN)), deque(maxlen=int(trace_len*LEN))
+    corner_text = ax.text(0.05, 0.8, '', transform=ax.transAxes, zorder=10)
+    history_x, history_y = deque(maxlen=int(
+        trace_len*LEN)), deque(maxlen=int(trace_len*LEN))
 
     def animate(i):
         stat_text = ''
@@ -65,9 +66,8 @@ def visualize_double_pendulum(points,
         if stats is not None:
             for stat in stats:
                 stat_text += rf'{stat[0]}:  {round(stat[1][i],3)}'
-                stat_text +='\n'
+                stat_text += '\n'
             corner_text.set_text(stat_text)
-
 
         return circle_1, circle_2, line, trace, corner_text
 
@@ -77,9 +77,14 @@ def visualize_double_pendulum(points,
         if verbose:
             print('Animation being saved...')
         # print('Hit CTRL+W to exit')
-        ani.save('pendulum.gif', writer='pillow', fps = 1/dt)
+        # ani.save('pendulum.gif', writer='pillow', fps = 1/dt)
+        with open('double_pendulum.html','w') as f:
+            f.write(ani.to_jshtml())
 
     if verbose:
         print('Animation begin...')
         print('Hit CTRL+W to exit')
-    plt.show()
+    if show:
+        plt.show()
+
+    return ani

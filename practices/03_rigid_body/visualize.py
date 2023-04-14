@@ -6,7 +6,8 @@ def visualize_rotation(rotation_matrices,
                        #  output_file=None,
                        stats=None,
                        verbose=True,
-                       show=True):
+                       save = False,
+                       show=True, dt = 0.01):
 
     axes_t = np.array([rotation_matrices[:, :, 0],
                        rotation_matrices[:, :, 1],
@@ -42,7 +43,7 @@ def visualize_rotation(rotation_matrices,
     ax.set_ylim((-1.1, 1.1))
     ax.set_zlim((-1.1, 1.1))
 
-    ax.view_init(14, 0)
+    ax.view_init(46, 18)
 
     def init():
         for line, pt, axs, xi in zip(lines, pts, axes, axes_t):
@@ -54,7 +55,7 @@ def visualize_rotation(rotation_matrices,
 
         return lines + pts + axes
 
-    lag = 35
+    lag = 20
     
     
 
@@ -86,18 +87,24 @@ def visualize_rotation(rotation_matrices,
         fig.canvas.draw()
         return lines + pts + axes
     
-    if verbose:
-        print('Animation begin...')
-        print('Hit CTRL+W to exit')
 
     # instantiate the animator.
     anim = animation.FuncAnimation(fig, animate,
                                    init_func=init,
                                    frames=frames,
-                                   interval=interval,
+                                   interval=dt*1000,
                                    blit=True)
+    if save:
+        if verbose:
+            print('Animation being saved...')
+        # print('Hit CTRL+W to exit')
+        # ani.save('pendulum.gif', writer='pillow', fps = 1/dt)
+        with open('rigid_body.html','w') as f:
+            f.write(anim.to_jshtml(fps = 1/dt))
+
+    if verbose:
+        print('Animation begin...')
+        print('Hit CTRL+W to exit')
     if show:
         plt.show()
-    # else:
-    #     anim.save('animation.gif', writer='imagemagick', fps=60)
     return anim
