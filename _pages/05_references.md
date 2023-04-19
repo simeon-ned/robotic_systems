@@ -6,7 +6,7 @@ category: outline
 layout: post
 permalink: /info/references.html
 ---
-### **References**
+<!-- ### **References** -->
 
 <!-- The material of this course is based on techniques which, in my humble opinion, are theoretically interesting and practically significant. This in no way means that the proposed algorithms are the recipe for resolving all your control problems. -->
 
