@@ -22,7 +22,7 @@ def visualize_double_pendulum(points,
     L2 = ((x2[0] - x1[0])**2 + (y2[0] - y1[0])**2)**0.5
     L_MAX = 1.1*(L2 + L1)
 
-    fig = plt.figure(figsize=(4, 4))
+    fig = plt.figure(figsize=(6, 6))
     ax = fig.add_subplot(autoscale_on=False,
                          xlim=(-L_MAX, L_MAX), ylim=(-L_MAX, L_MAX))
     # ax.set_aspect('equal')
