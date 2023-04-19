@@ -7,26 +7,47 @@ layout: post
 permalink: /info/about.html
 ---
 
-This course is attempt to explore **modern control paradigms** in terms of **numerical methods** and **optimization**, while relaying on **fundamental theory**, however we will avoid proofs and deep theoretical reasoning, where it possible. (mainly due to time considerations and amount of material)       
+In this course we will explore **simulation** and **modeling techniques** applicable to robotic systems while linking basic knowledge of mechanics to simulation algorithms:
 
+* Recall what a **model** of robotic system is, why it is needed as well as how to build one.
+* Consider different approaches to **integration** of dynamics and check the properties of integrators (Implicit/Explicit Euler, Runge-Kutta)
+* We will learn how to apply the **Euler-Lagrange equations** to the systems with constraints holonomic and non-holonomic **constraints** (Lagange Multipliers)
+* Consider the **numerical algorithms for constrained dynamics** (Udwadia Qalaba)
+* Explore and examine the relatively **novel variation integrators**
+* Consider the specific features of simulation through **contact**
 
-The material of this course is based on technologies which in my humble opinion are theoretically interesting and practically significant. This in no way means that the reviewed algorithms will be the recipe for resolving all your control problems. However it may give you some view on the modern control field.
+By the end of the course you will learn how to build **models** of various **robotic systems**: drones, serial and parallel manipulators, mobile robots, etc. You will also exploit different approaches to **simulation** of these systems.
 
 ### Structure of the course
 
 The course is consist of following parts:
 
 
-* **Introduction and Modeling**: recap the concept of dynamical system, and discuss some issues related to practical implementation of controllers.
 
-* **Review of System Analysis and Control**: review of system analysis, Lyapunov theory, stability, and linear and nonlinear control, with focus on numerical tools.
+#### **Part 1: Introduction, Simulation and Fundamentals** 
 
-* **Optimization in Planning and Control**: overview the optimization driven methods dedicated for planning and control of linear and nonlinear systems, MPC and Lyapunov inspired methods.
+* Introduction, Course Outline, History of Dynamics, Models of Robotic Systems
+* State Space, Differential Equations, Integrators, Discrete Dynamics and Stability
+* Kinematics, Reference Frames
+* Rotation matrices, SO(3), Quaternions 
 
+#### **Part 2: Free Dynamics** 
+* Dynamics of Rigid Body, Euler Equations
+* Angular Momentum, Middle Axis Theorem, Drones, Underwater Vehicles, Centroidal Dynamics
+* Variational Approach, Least Action Principle, Statics and Potential Forces, Euler-Lagrange equations, Conserved Quantities
+* Equations of Motion, The Properties of EoM, Robotic Manipulators
 
-* **Identification and Data Driven Methods**: In this chapter we will study the algorithms that allow us to find the parameters of abstract models based on the measurements from real plant and even build model from the scratch.  
+#### **Part 3: Constrained Dynamics**
+* Constraints, Holonomic and Nonholonomic, Lagrange Multipliers
+* Parallel Robots, Mobile Robots, Baghuard Stabilization
+* Gauss Principle of Least Constraints, Udwadia–Kalaba formulation, Constrained Equation of Motion
+<!-- * **Lecture 12** (Week 6): Other View on the Dynamics -->
 
-* **Other topics:**: Here we will briefly review the ideas and the other interesting techniques, including numerical analysis, including differential flatness, state observers and sum-of-squares programming etc.
+#### **Part 4: Advanced Integrators and Simulation**  
+* Hamiltonian Dynamics and Momentum
+* Discrete Least Action and Lagrangian, Verlet and Variational Integrators
+* Variational Integrators with Constraints and Non-Potential Forces
+* Introduction to Simulation of Contacts
 
 <!-- 
 * **Term project presentation** (final exam): In the end you will apply one of the studied concepts and prepare the short (10-20 min) presentation.
@@ -39,8 +60,9 @@ The course is consist of following parts:
 
 ### Prerequisites
 
-In order to be able to successfully go over course material and pass the final you must match the following **requirements**:
-* It should **NOT** be your first course in control
-* All of you should have basic background in **differential equations**, **linear algebra** and **linear and nonlinear control**, including stability analysis and **Lyapunov theory**. 
-* Familiar with **convex optimization**, linear, quadratic programming, linear matrix inequalities
+* Linear algebra
+* Physics (Mechanics)
+* Some basic knowledge of differential equations and stability theory
+* Basic linear control theory
+
 

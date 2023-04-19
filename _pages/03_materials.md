@@ -128,6 +128,58 @@ python code, jupyter notebook and google colab on different aspects of simulatio
 
 ---- 
 
+
+### **Lecture 5**: Euler-Lagrange Equations
+<!-- [4_slides_online]: https://simeon-ned.github.io/mcp/lectures/04_lqr/04_lqr.slides.html
+[4_slides_jupyter]: https://simeon-ned.github.io/mcp/lectures/04_lqr/04_lqr.ipynb
+[4_notes_pdf]: https://simeon-ned.github.io/mcp/lectures/04_lqr/04_lqr.pdf
+[4_notes_online]: https://simeon-ned.github.io/mcp/lectures/04_lqr/04_lqr.html -->
+<!-- [2_notes_colab]: https://simeon-ned.github.io/mcp/lectures/02_analysis_and_feedback/02_analysis_and_feedback.slides.html -->
+
+
+**Description:** Coordinate Invariance, Generalized Coordinates, Forces and Momentum, Conserved Quantities and Cyclic Coordinates, Force Transformation and Principle of Virtual Work, Manipulator Equations and their Properties.
+
+<!-- <div class="table-wrapper" markdown="block">
+
+|:-:|:-:|
+|**Slides:** [online][6_slides_online], [jupyter notebook][6_slides_jupyter]|**Notes:** [online][6_notes_online], [pdf][6_notes_pdf]|
+
+</div> -->
+
+> The content of this lecture is in progress
+{: .block-danger }
+
+
+---- 
+
+
+## **Part 3**: Constrained Dynamics
+ 
+---- 
+
+### **Lecture 6**: Holonomic Constraints and Lagrange Multipliers
+<!-- [4_slides_online]: https://simeon-ned.github.io/mcp/lectures/04_lqr/04_lqr.slides.html
+[4_slides_jupyter]: https://simeon-ned.github.io/mcp/lectures/04_lqr/04_lqr.ipynb
+[4_notes_pdf]: https://simeon-ned.github.io/mcp/lectures/04_lqr/04_lqr.pdf
+[4_notes_online]: https://simeon-ned.github.io/mcp/lectures/04_lqr/04_lqr.html -->
+<!-- [2_notes_colab]: https://simeon-ned.github.io/mcp/lectures/02_analysis_and_feedback/02_analysis_and_feedback.slides.html -->
+
+
+**Description:** Motion as Optimization, Constraints, The Lagrange Multipliers, Constrained Manipulator Equations, and Baumgarte Constraint Stabilization.
+
+<!-- <div class="table-wrapper" markdown="block">
+
+|:-:|:-:|
+|**Slides:** [online][6_slides_online], [jupyter notebook][6_slides_jupyter]|**Notes:** [online][6_notes_online], [pdf][6_notes_pdf]|
+
+</div> -->
+
+> The content of this lecture is in progress
+{: .block-danger }
+
+
+---- 
+
 <!-- > ##### NOTE -->
 >
 > The content of the lectures is constantly adapted and supplemented, and furthermore some additional material will appear on this site over time, which was not presented in class (mainly due to time constraints).
