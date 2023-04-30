@@ -17,8 +17,8 @@ You can also cite this course in your thesis or publications.
 ```python
 @book{robsys_course,
       title        = "Modeling of Robotic Systems",
-      subtitle     = "Dynamics, Modeling and Simulation of Complex Robotics Systems",
-      howpublished = "Course Notes for Modeling of Robotic Systems",
+      subtitle     = "Dynamics, Modeling and Simulation of Robotic Systems",
+      howpublished = "Course Notes on Modeling of Robotic Systems",
       author       = "Simeon Nedelchev",
       year         = 2023,
       url          = "https://simeon-ned.github.io/robotic_systems/"
